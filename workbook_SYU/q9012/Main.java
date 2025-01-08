@@ -1,5 +1,5 @@
-package q9498;
+package q9012;
 
 public class Main {
-
+	
 }

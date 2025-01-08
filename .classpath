@@ -6,5 +6,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="workbook_SYU"/>
+	<classpathentry kind="src" path="BOJ_silver"/>
+	<classpathentry kind="src" path="BOJ_bronze"/>
+	<classpathentry kind="src" path="BOJ_gold"/>
+	<classpathentry kind="src" path="BOJ_Platinum"/>
+	<classpathentry kind="src" path="BOJ_Diamond"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
