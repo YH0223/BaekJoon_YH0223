@@ -15,12 +15,13 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         int CountTestN=Integer.parseInt(bf.readLine());
-        StringTokenizer st=new StringTokenizer(bf.readLine());;
-        int start[]= {Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())};
-        int end[]= {Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())};
-        for(int i=0; i<CountTestN;i++) {
+        
+        for(int i=0; i<CountTestN;i++) { 
+        	StringTokenizer st=new StringTokenizer(bf.readLine());;
+            int start[]= {Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())};
+            int end[]= {Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())};
         	int countStarN=Integer.parseInt(bf.readLine());
-        	int[][]tempStar=new int[countStarN][5];
+        	int[][]tempStar=new int[countStarN][3];
         	int passing=0;
         	for(int j=0;j<countStarN;j++) {
         		st=new StringTokenizer(bf.readLine());
@@ -28,18 +29,21 @@ public class Main {
         			tempStar[j][k]=Integer.parseInt(st.nextToken());
         		}
         	}
-        	for(int j=0;i<countStarN;j++) {
+        	for(int j=0;j<countStarN;j++) {
         		int tempS=getDistance(start,tempStar[j][0],tempStar[j][1]);
         		int tempE=getDistance(end,tempStar[j][0],tempStar[j][1]);
-        		if(tempS<(int)Math.pow(tempStar[j][2],2)&&(tempE<(int)Math.pow(tempStar[j][2],2))){
+        		int radpowtemp=(int)Math.pow(tempStar[j][2],2);
+        		if(tempS<radpowtemp&&tempE<radpowtemp||tempS>radpowtemp&&tempE>radpowtemp){
         			continue;
-        		}else if(tempS<(int)Math.pow(tempStar[j][2],2)&&tempE>=(int)Math.pow(tempStar[j][2],2)){
+        		}else if(tempS<radpowtemp){
         			passing++;
-        		}else if(tempS>=(int)Math.pow(tempStar[j][2],2)&&(tempE<(int)Math.pow(tempStar[j][2],2))) {
+        		}else if(tempE<radpowtemp) {
         			passing++;
         		}
         	}
+        	 bw.write(passing+"\n");
         }
+       
         
 		bw.flush();
 		bf.close();
@@ -49,7 +53,7 @@ public class Main {
 		int tempdistancepow=-1;
 		int absX=Math.abs(pointXY[0]-X);
 		int absY=Math.abs(pointXY[1]-Y);
-		tempdistancepow=(int) Math.pow(absX, absY);
+		tempdistancepow=(int) Math.pow(absX, 2)+(int) Math.pow(absY, 2);
 		return tempdistancepow;
 	}
 }

@@ -28,7 +28,7 @@ public class Main {
         	arrayX[i][0] = i;
             arrayX[i][1] = Integer.parseInt(input[i]);
         }
-        // 비교, 정렬
+     // 비교, 정렬, 오름차순
         Arrays.sort(arrayX, new Comparator<int[]>() {
 			
 			@Override
